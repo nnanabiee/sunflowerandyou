@@ -770,9 +770,10 @@ justify-content:center;
 
 align-items:center;
 
-gap:50px;
+gap:30px;
 
-width:100%;
+width:fit-content;
+margin:0 auto;
 
 }
 
