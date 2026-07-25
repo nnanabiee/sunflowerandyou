@@ -518,7 +518,7 @@ body{
     width:92%;
     max-width:900px;
 
-    height:calc(100vh - 60px);
+    height:85vh;
 
     background:#FFF9EF;
 
@@ -558,7 +558,7 @@ body{
 
 .reason-container{
 
-    height:62vh;
+    height:58vh;
 
     overflow-y:auto;
 
