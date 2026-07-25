@@ -518,7 +518,7 @@ body{
     width:92%;
     max-width:900px;
 
-    height:80vh;
+    height:calc(100vh - 60px);
 
     background:#FFF9EF;
 
