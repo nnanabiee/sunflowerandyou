@@ -616,7 +616,7 @@ tahun depan,
 dan tahun-tahun setelahnya...
 aku masih bisa nemenin ulang tahun renn yaaw
 
-— bie yang cakeup, yang suka jaemin, suka jeno, suka renn, suka kinci, suka bebek, suka tempe kecap, suka ayam goyeng bawang putih`;
+— bie yang suka jaemin, jeno, kinci`;
 
 let typingIndex = 0;
 
