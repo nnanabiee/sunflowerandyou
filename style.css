@@ -911,23 +911,35 @@ body{
 
 }
 
-/* PENTING: ukuran ini HARUS selalu sama persis dengan .bouquet-area
-   (lebar & aspect-ratio) di setiap breakpoint, karena posisi tiap bunga
-   disimpan dalam koordinat px berdasarkan ukuran .bouquet-area waktu
-   dipilih. Kalau beda ukuran, bunganya bakal geser/keluar dari vas. */
+/* Ini "jendela" yang di-crop supaya nggak ada jarak kosong besar di atas
+   bunga. Isi aslinya (.final-bouquet-inner) tetap dibikin SAMA PERSIS
+   ukurannya dengan .bouquet-area lewat JS, biar posisi bunga nggak geser
+   sedikit pun — cuma bagian bawahnya aja yang ditampilkan di sini. */
 .final-bouquet{
 
-    margin:35px auto 0;
+    margin:10px auto 0;
 
     width:min(65vw,520px);
 
-    aspect-ratio:4/5;
+    height:300px;
 
     max-width:100%;
 
     position:relative;
 
     overflow:hidden;
+
+}
+
+.final-bouquet-inner{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    pointer-events:none;
 
 }
 
@@ -1122,7 +1134,7 @@ body{
 
     .final-bouquet{
         width:420px;
-        aspect-ratio:4/5;
+        height:280px;
     }
 
     .polaroid{
@@ -1179,7 +1191,7 @@ body{
     .final-bouquet{
         width:95%;
         max-width:380px;
-        aspect-ratio:4/5;
+        height:230px;
     }
 
     .vase{
