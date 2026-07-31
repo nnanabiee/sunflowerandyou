@@ -544,15 +544,27 @@ document
 .getElementById("finishBouquet")
 .onclick=()=>{
 
-    // CSS aja nggak selalu menjamin ukuran final-bouquet identik piksel-demi-piksel
-    // dengan bouquet-area (bisa geser dikit karena scrollbar/reflow beda antar halaman,
-    // termasuk di mobile). Makanya di sini ukurannya dipaksa sama persis pakai px asli
-    // dari bouquetArea, baru koordinat bunga (yang disimpan dalam px) dicopy tanpa geser.
+    // .final-bouquet sekarang cuma "jendela" pendek yang di-crop (lihat style.css)
+    // supaya nggak ada jarak kosong besar di atas bunga. Isi aslinya
+    // (.final-bouquet-inner) dibikin PERSIS sama ukurannya (dalam px asli) dengan
+    // bouquetArea, ditempel rata bawah, biar koordinat bunga nggak geser sedikit pun
+    // — cuma bagian bawahnya aja yang kelihatan lewat jendela itu.
     const bqRect = bouquetArea.getBoundingClientRect();
-    finalBouquet.style.width = bqRect.width + "px";
-    finalBouquet.style.height = bqRect.height + "px";
 
-    finalBouquet.innerHTML=
+    let bouquetInner = finalBouquet.querySelector(".final-bouquet-inner");
+
+    if(!bouquetInner){
+        bouquetInner = document.createElement("div");
+        bouquetInner.className = "final-bouquet-inner";
+        finalBouquet.appendChild(bouquetInner);
+    }
+
+    finalBouquet.style.width = bqRect.width + "px";
+
+    bouquetInner.style.width = bqRect.width + "px";
+    bouquetInner.style.height = bqRect.height + "px";
+
+    bouquetInner.innerHTML=
     bouquetArea.innerHTML;
 
     showPage("final-page");
