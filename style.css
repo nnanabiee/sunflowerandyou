@@ -917,11 +917,11 @@ body{
    sedikit pun — cuma bagian bawahnya aja yang ditampilkan di sini. */
 .final-bouquet{
 
-    margin:10px auto 0;
+    margin:0 auto;
 
     width:min(65vw,520px);
 
-    height:300px;
+    height:180px;
 
     max-width:100%;
 
@@ -1134,7 +1134,7 @@ body{
 
     .final-bouquet{
         width:420px;
-        height:280px;
+        height:170px;
     }
 
     .polaroid{
@@ -1191,7 +1191,7 @@ body{
     .final-bouquet{
         width:95%;
         max-width:380px;
-        height:230px;
+        height:150px;
     }
 
     .vase{
