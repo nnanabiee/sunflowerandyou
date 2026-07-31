@@ -911,15 +911,17 @@ body{
 
 }
 
-/* Ukurannya disamain sama .bouquet-area biar posisi
-   bunga yang dipindah dari halaman bikin-buket nggak geser/kepotong */
+/* PENTING: ukuran ini HARUS selalu sama persis dengan .bouquet-area
+   (lebar & aspect-ratio) di setiap breakpoint, karena posisi tiap bunga
+   disimpan dalam koordinat px berdasarkan ukuran .bouquet-area waktu
+   dipilih. Kalau beda ukuran, bunganya bakal geser/keluar dari vas. */
 .final-bouquet{
 
     margin:35px auto 0;
 
-    width: 380px;
+    width:min(65vw,520px);
 
-    height: 300px;
+    aspect-ratio:4/5;
 
     max-width:100%;
 
@@ -1118,6 +1120,11 @@ body{
         aspect-ratio:4/5;
     }
 
+    .final-bouquet{
+        width:420px;
+        aspect-ratio:4/5;
+    }
+
     .polaroid{
         width:200px;
     }
@@ -1163,6 +1170,12 @@ body{
     }
 
     .bouquet-area{
+        width:95%;
+        max-width:380px;
+        aspect-ratio:4/5;
+    }
+
+    .final-bouquet{
         width:95%;
         max-width:380px;
         aspect-ratio:4/5;
