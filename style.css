@@ -705,7 +705,7 @@ body{
     gap:40px;
 
     width:min(1100px,95%);
-    margin:30px auto;
+    margin:30px auto 110px; /* ruang bawah biar nggak ketutupan .next-button yang fixed */
     flex-wrap:wrap;
 
 }
@@ -1153,6 +1153,7 @@ body{
         align-items:center;
         gap:20px;
         width:100%;
+        margin-bottom:120px; /* ruang ekstra biar vas nggak ketutupan tombol lanjut */
     }
 
     .flower-panel{
