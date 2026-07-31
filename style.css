@@ -1151,89 +1151,288 @@ transform:translateY(0);
 
 }
 
-/* =======================================
-   RESPONSIVE / MOBILE
-======================================= */
+/* ===================================================
+   DESKTOP (default)
+=================================================== */
 
-@media (max-width: 768px){
+.bouquet-layout{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:40px;
+
+    width:min(1100px,95%);
+    margin:30px auto;
+}
+
+.flower-panel{
+    width:220px;
+    flex-shrink:0;
+}
+
+.flower-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.bouquet-flower{
+    width:75px;
+    display:block;
+    margin:auto;
+}
+
+.bouquet-area{
+    width:min(65vw,520px);
+    aspect-ratio:4/5;
+
+    background:#FFFDF8;
+    border-radius:35px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+.vase{
+    width:180px;
+
+    position:absolute;
+    left:50%;
+    bottom:10px;
+
+    transform:translateX(-50%);
+}
+
+.selectedFlower{
+    width:72px;
+}
+
+.photo-gallery{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:nowrap;
+    gap:30px;
+}
+
+.polaroid{
+    width:250px;
+}
+
+.polaroid img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.final-text{
+    width:min(700px,90%);
+    margin:auto;
+    font-size:20px;
+    line-height:1.8;
+}
+
+.final-card h1{
+    font-size:52px;
+}
+
+#typingMessage{
+    width:min(720px,90%);
+    font-size:21px;
+    line-height:1.7;
+}
+
+
+/* ===================================================
+   TABLET
+=================================================== */
+
+@media (max-width:992px){
+
+    .bouquet-layout{
+        gap:25px;
+    }
+
+    .flower-panel{
+        width:180px;
+    }
+
+    .bouquet-flower{
+        width:65px;
+    }
+
+    .bouquet-area{
+        width:420px;
+    }
+
+    .polaroid{
+        width:200px;
+    }
+
+    .polaroid img{
+        height:200px;
+    }
+
+    .final-card h1{
+        font-size:42px;
+    }
+
+}
+
+
+/* ===================================================
+   MOBILE
+=================================================== */
+
+@media (max-width:768px){
 
     body{
         overflow-y:auto;
     }
 
     .page{
-        height:auto;
         min-height:100vh;
-        padding:30px 12px;
+        height:auto;
+        padding:25px 12px;
     }
 
-    .question-card{
-        padding:28px 20px;
+    /* ---------- Bouquet ---------- */
+
+    .bouquet-layout{
+        flex-direction:column;
+        align-items:center;
+        gap:20px;
+        width:100%;
     }
+
+    .flower-panel{
+        width:95%;
+        max-width:380px;
+    }
+
+    .flower-grid{
+        grid-template-columns:repeat(4,1fr);
+        gap:12px;
+    }
+
+    .bouquet-flower{
+        width:55px;
+    }
+
+    .bouquet-area{
+        width:95%;
+        max-width:380px;
+        aspect-ratio:4/5;
+    }
+
+    .vase{
+        width:150px;
+    }
+
+    .selectedFlower{
+        width:60px;
+    }
+
+    /* ---------- Final ---------- */
+
+    .final-card{
+        width:96%;
+        padding:20px 15px;
+    }
+
+    .final-card h1{
+        font-size:34px;
+
+        /* INI BIAR TIDAK PECAH SATU SATU */
+        white-space:nowrap;
+    }
+
+    .photo-gallery{
+        flex-direction:row;
+        flex-wrap:nowrap;
+        gap:15px;
+    }
+
+    .polaroid{
+        width:42%;
+        padding:10px 10px 35px;
+    }
+
+    .polaroid img{
+        width:100%;
+        height:auto;
+        aspect-ratio:1/1;
+    }
+
+    .final-text{
+        width:95%;
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    #typingMessage{
+        width:95%;
+        font-size:16px;
+        line-height:1.6;
+    }
+
+    .final-frog,
+    .final-bunny{
+        width:65px;
+    }
+
+    .balloon{
+        width:55px;
+    }
+
+    .next-button{
+        font-size:18px;
+        padding:14px 35px;
+    }
+
+}
+
+
+/* ===================================================
+   HP KECIL
+=================================================== */
+
+@media (max-width:430px){
 
     .question-card h2{
         font-size:24px;
     }
 
-    .reason-wrapper{
-        width:96%;
-        height:auto;
-        padding:20px 14px;
-    }
-
     .reason-wrapper h1{
-        font-size:26px;
+        font-size:22px;
     }
 
-    .reason-container{
-        height:56vh;
+    .reason-subtitle{
+        font-size:15px;
     }
 
-    /* Bouquet builder: panel bunga di atas, area buket di bawah */
-    .bouquet-layout{
-        flex-direction:column;
-        gap:20px;
+    .bouquet-flower{
+        width:48px;
     }
 
-    .flower-panel{
-        width:92%;
-        max-width:380px;
+    .vase{
+        width:135px;
     }
 
-    .bouquet-area{
-        width:92vw;
-        max-width:380px;
-        height:300px;
-    }
-
-    .final-card{
-        padding:24px 16px;
+    .selectedFlower{
+        width:52px;
     }
 
     .final-card h1{
-        font-size:30px;
+        font-size:26px;
     }
 
-    .polaroid img{
-        width:150px;
-        height:150px;
-    }
-
-    .final-bouquet{
-        width:92vw;
-        max-width:380px;
-        height:300px;
+    .final-text{
+        font-size:15px;
     }
 
     #typingMessage{
-        font-size:17px;
-        width:90%;
-        margin:30px auto 40px;
+        font-size:15px;
     }
 
-    .next-button{
-        padding:14px 32px;
-        font-size:18px;
-        z-index:11;
-    }
 }
