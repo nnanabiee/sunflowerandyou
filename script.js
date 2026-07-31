@@ -544,8 +544,14 @@ document
 .getElementById("finishBouquet")
 .onclick=()=>{
 
-    // .final-bouquet dibuat dengan ukuran sama persis dengan .bouquet-area
-    // (lihat style.css), jadi koordinat bunga bisa disalin langsung tanpa geser
+    // CSS aja nggak selalu menjamin ukuran final-bouquet identik piksel-demi-piksel
+    // dengan bouquet-area (bisa geser dikit karena scrollbar/reflow beda antar halaman,
+    // termasuk di mobile). Makanya di sini ukurannya dipaksa sama persis pakai px asli
+    // dari bouquetArea, baru koordinat bunga (yang disimpan dalam px) dicopy tanpa geser.
+    const bqRect = bouquetArea.getBoundingClientRect();
+    finalBouquet.style.width = bqRect.width + "px";
+    finalBouquet.style.height = bqRect.height + "px";
+
     finalBouquet.innerHTML=
     bouquetArea.innerHTML;
 
