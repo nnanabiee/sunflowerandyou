@@ -9,7 +9,6 @@ body{
     background:#EEF5DF;
     font-family:"Patrick Hand", cursive;
 
-    overflow:hidden;
     overflow-y:auto;
 
 }
@@ -17,7 +16,8 @@ body{
 .page{
 
     width:100vw;
-    height:100vh;
+    min-height:100vh;
+    height:auto;
 
     display:none;
 
@@ -25,6 +25,8 @@ body{
     align-items:center;
 
     position:relative;
+
+    padding:25px 12px;
 
 }
 
@@ -109,10 +111,10 @@ body{
   width: 100%;
   height: 95px;
   background-color: #e7bc91;
-  
+
   /* Hilangkan clip-path murni, ganti polygon 4 titik yang mengikuti curve amplop */
   clip-path: polygon(12px 0, calc(100% - 12px) 0, 50% 100%);
-  
+
   transform-origin: top center;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 12px 12px 0 0;
@@ -133,7 +135,7 @@ body{
   transform: translateX(-50%);
   z-index: 2;
   transition: bottom 0.6s ease, transform 0.6s ease, opacity 0.5s ease;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -224,76 +226,6 @@ body{
     right:40px;
     bottom: 270px;
 
-}
-
-.flower img{
-    position:absolute;
-    width: 55px;
-    opacity: .95;
-}
-
-.flower img:nth-child(1){
-    top:8%;
-    left:18%;
-
-}
-
-.flower img:nth-child(2){
-    right:18%;
-    top:18%;
-
-}
-
-.flower img:nth-child(3){
-    bottom:12%;
-    right:22%;
-
-}
-
-.flower img:nth-child(4){
-    left:12%;
-    bottom:18%;
-
-}
-
-.flower img:nth-child(5){
-    right:8%;
-    bottom:35%;
-
-}
-
-.flower img:nth-child(6){
-    top:55%;
-    left:30%;
-}
-
-.flower img:nth-child(7){
-    top:8%;
-    right:35%;
-}
-
-.flower img:nth-child(8){
-    bottom:10%;
-    left:45%;
-}
-
-.flower-grid{
-
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap: 12px;
-    margin-top:15px;
-
-}
-
-.bouquet-flower{
-    width:70px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.bouquet-flower:hover{
-    transform:scale(1.15);
 }
 
 @keyframes wiggle{
@@ -761,71 +693,83 @@ body{
 
 }
 
+/* ========================= */
+/* BUKET (layout final, satu sumber definisi) */
+/* ========================= */
+
 .bouquet-layout{
 
-display:flex;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:40px;
 
-justify-content:center;
-
-align-items:center;
-
-gap:50px;
-
-width:100%;
+    width:min(1100px,95%);
+    margin:30px auto;
+    flex-wrap:wrap;
 
 }
 
 .flower-panel{
 
-width:180px;
+    width:220px;
+    flex-shrink:0;
 
-background:#FFF9EF;
+    background:#FFF9EF;
 
-padding:20px;
+    padding:20px;
 
-border-radius:25px;
+    border-radius:25px;
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-gap:15px;
+    gap:15px;
 
-align-items:center;
-
-}
-
-.flower-option{
-
-width:80px;
-
-cursor:pointer;
-
-transition:.3s;
+    align-items:center;
 
 }
 
-.flower-option:hover{
+.flower-grid{
 
-transform:scale(1.15);
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:15px;
+
+}
+
+.bouquet-flower{
+
+    width:75px;
+    display:block;
+    margin:auto;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.bouquet-flower:hover{
+
+    transform:scale(1.15);
 
 }
 
 .bouquet-area{
 
-width:420px;
+    width:min(65vw,520px);
+    aspect-ratio:4/5;
 
-height:520px;
+    background:#FFFDF8;
 
-background:#FFFDF8;
+    border-radius:35px;
 
-border-radius:35px;
+    position:relative;
 
-position:relative;
+    overflow:hidden;
 
-overflow:hidden;
-
-box-shadow:0 10px 20px rgba(0,0,0,.08);
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
 
 }
 
@@ -838,118 +782,122 @@ box-shadow:0 10px 20px rgba(0,0,0,.08);
 
 .vase{
 
-position:absolute;
-
-bottom:2px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:170px;
-
-pointer-events:none;
-z-index:10;
-
-}
-
-.bouquet-item{
     position:absolute;
-    width:95px;
-    cursor:grab;
-    z-index:2;
+
+    bottom:10px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:180px;
+
+    pointer-events:none;
+    z-index:10;
+
 }
 
 .selectedFlower{
-position:absolute;
-width:70px;
-user-select:none;
-cursor:grab;
+
+    position:absolute;
+    width:72px;
+    user-select:none;
+    cursor:grab;
 
 }
 
+/* ========================= */
+/* HALAMAN FINAL */
+/* ========================= */
+
 .final-card{
 
-width:95%;
+    width:95%;
 
-max-width:900px;
+    max-width:900px;
 
-background:#FFF9EF;
+    background:#FFF9EF;
 
-border-radius:40px;
+    border-radius:40px;
 
-padding:40px;
+    padding:40px;
 
-position:relative;
+    position:relative;
 
-overflow:hidden;
+    overflow:hidden;
 
-text-align:center;
+    text-align:center;
 
-box-shadow:0 20px 40px rgba(0,0,0,.08);
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
 
 }
 
 .final-card h1{
 
-font-size:42px;
+    font-size:52px;
 
-color:#6A4A2C;
+    color:#6A4A2C;
 
-margin-bottom:20px;
+    margin-bottom:20px;
 
 }
 
 .final-text{
 
-font-size:18px;
+    width:min(700px,90%);
+    margin:auto;
 
-line-height:1.5;
+    font-size:20px;
 
-color:#6A4A2C;
+    line-height:1.8;
 
-margin-bottom:5px;
+    color:#6A4A2C;
+
+    margin-bottom:5px;
 
 }
 
 .photo-gallery{
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-gap:30px;
+    align-items:center;
 
-margin:35px 0;
+    gap:30px;
 
-flex-wrap:wrap;
+    flex-wrap:nowrap;
+
+    margin:35px 0;
 
 }
 
 .polaroid{
 
-background:white;
+    width:250px;
 
-padding:12px 12px 45px;
+    background:white;
 
-border-radius:8px;
+    padding:12px 12px 45px;
 
-box-shadow:0 15px 30px rgba(0,0,0,.15);
+    border-radius:8px;
 
-transition:.4s;
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+
+    transition:.4s;
 
 }
 
 .polaroid img{
 
-width:220px;
+    width:100%;
 
-height:220px;
+    height:250px;
 
-object-fit:cover;
+    object-fit:cover;
 
 }
-
 
 .rotate-left:hover{
 
@@ -957,82 +905,81 @@ object-fit:cover;
 
 }
 
-
 .rotate-right:hover{
 
     transform:rotate(6deg) scale(1.05);
 
 }
 
-/* Ukurannya disamain sama .bouquet-area (420x520, discale) biar posisi
+/* Ukurannya disamain sama .bouquet-area biar posisi
    bunga yang dipindah dari halaman bikin-buket nggak geser/kepotong */
 .final-bouquet{
 
-margin:35px auto 0;
+    margin:35px auto 0;
 
-width: 380px;;
+    width: 380px;
 
-height: 300px;
+    height: 300px;
 
-max-width:100%;
+    max-width:100%;
 
-position:relative;
+    position:relative;
 
-overflow:hidden;
+    overflow:hidden;
 
 }
 
 .final-frog{
 
-position:absolute;
+    position:absolute;
 
-left:20px;
+    left:20px;
 
-bottom:20px;
+    bottom:20px;
 
-width:90px;
+    width:90px;
 
-animation:bounce 2s infinite;
+    animation:bounce 2s infinite;
 
 }
 
 .final-bunny{
 
-position:absolute;
+    position:absolute;
 
-right:3px;
+    right:3px;
 
-bottom:20px;
+    bottom:20px;
 
-width:90px;
+    width:90px;
 
-animation:bounce 2.4s infinite;
+    animation:bounce 2.4s infinite;
 
 }
 
 .balloon{
 
-position:absolute;
+    position:absolute;
 
-width:70px;
+    width:70px;
 
-animation:floatBalloon 6s linear infinite;
+    animation:floatBalloon 6s linear infinite;
 
 }
 
 .balloon1{
 
-left:-2px;
+    left:-2px;
 
-top:40px;
+    top:40px;
 
 }
 
 .balloon2{
 
-right:3px;
+    right:3px;
 
-top: 40px;
+    top: 40px;
 
 }
 
@@ -1040,13 +987,13 @@ top: 40px;
 
 0%,100%{
 
-transform:translateY(0);
+    transform:translateY(0);
 
 }
 
 50%{
 
-transform:translateY(-12px);
+    transform:translateY(-12px);
 
 }
 
@@ -1056,19 +1003,19 @@ transform:translateY(-12px);
 
 0%{
 
-transform:translateY(0);
+    transform:translateY(0);
 
 }
 
 50%{
 
-transform:translateY(-25px);
+    transform:translateY(-25px);
 
 }
 
 100%{
 
-transform:translateY(0);
+    transform:translateY(0);
 
 }
 
@@ -1076,23 +1023,20 @@ transform:translateY(0);
 
 #typingMessage{
 
+    width:min(720px,90%);
     margin:10px auto;
-
-    max-width:650px;
 
     min-height:180px;
 
     white-space:pre-line;
 
-    font-size:20px;
+    font-size:21px;
 
-    line-height:1.45;
+    line-height:1.7;
 
     color:#6A4A2C;
 
     font-family:"Patrick Hand", cursive;
-
-    width:fit-content;
 
 }
 
@@ -1152,98 +1096,6 @@ transform:translateY(0);
 }
 
 /* ===================================================
-   DESKTOP (default)
-=================================================== */
-
-.bouquet-layout{
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    gap:40px;
-
-    width:min(1100px,95%);
-    margin:30px auto;
-}
-
-.flower-panel{
-    width:220px;
-    flex-shrink:0;
-}
-
-.flower-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-}
-
-.bouquet-flower{
-    width:75px;
-    display:block;
-    margin:auto;
-}
-
-.bouquet-area{
-    width:min(65vw,520px);
-    aspect-ratio:4/5;
-
-    background:#FFFDF8;
-    border-radius:35px;
-    position:relative;
-    overflow:hidden;
-    box-shadow:0 10px 20px rgba(0,0,0,.08);
-}
-
-.vase{
-    width:180px;
-
-    position:absolute;
-    left:50%;
-    bottom:10px;
-
-    transform:translateX(-50%);
-}
-
-.selectedFlower{
-    width:72px;
-}
-
-.photo-gallery{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:nowrap;
-    gap:30px;
-}
-
-.polaroid{
-    width:250px;
-}
-
-.polaroid img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-}
-
-.final-text{
-    width:min(700px,90%);
-    margin:auto;
-    font-size:20px;
-    line-height:1.8;
-}
-
-.final-card h1{
-    font-size:52px;
-}
-
-#typingMessage{
-    width:min(720px,90%);
-    font-size:21px;
-    line-height:1.7;
-}
-
-
-/* ===================================================
    TABLET
 =================================================== */
 
@@ -1263,6 +1115,7 @@ transform:translateY(0);
 
     .bouquet-area{
         width:420px;
+        aspect-ratio:4/5;
     }
 
     .polaroid{
@@ -1285,16 +1138,6 @@ transform:translateY(0);
 =================================================== */
 
 @media (max-width:768px){
-
-    body{
-        overflow-y:auto;
-    }
-
-    .page{
-        min-height:100vh;
-        height:auto;
-        padding:25px 12px;
-    }
 
     /* ---------- Bouquet ---------- */
 
